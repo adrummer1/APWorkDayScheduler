@@ -1,7 +1,7 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-$(function () {
+// $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -20,9 +20,9 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
+// });
 // Global variables
-var TimeBlockEl = document.querySelector('.container-fluid');
+// var TimeBlockEl = document.querySelector('.container-fluid');
 
 
 //Add current day, date, and time to header
@@ -34,6 +34,7 @@ $('.saveBtn').on('click', function() {
   var time = $(this).parent().attr('id');
 
   localStorage.setItem(time, text);
+  console.log(localStorage.setItem);
 });
 
 // Get item from local storage if there is anything.
@@ -49,22 +50,23 @@ $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 function trackTask() {
   var currentHour = dayjs().hour();
+  // console.log(currentHour);
 
   $('.time-block').each(function () {
-    var timeID = parseInt($(this).attr('id').split("hour")[1]);
+    var timeID = parseInt($(this).attr('id').split('hour')[1]);
+    console.log(timeID);
 
     if (timeID < currentHour) {
-      $(this).addClass('past');
+      $(this).addClass("past");
     }
     else if (timeID === currentHour) {
-      $(this).removeClass('past');
-      $(this).removeClass('future');
-      $(this).addClass('present');
+      $(this).removeClass("past");
+      $(this).addClass("present");
     }
     else {
-      $(this).removeClass('past');
-      $(this).removeClass('present');
-      $(this).addClass('future');
+      $(this).removeClass("past");
+      $(this).removeClass("present");
+      $(this).addClass("future");
     }
   });  
 }
