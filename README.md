@@ -16,6 +16,6 @@ For this application I utilized the skills learned in Module 5, including using 
 
 ## Screenshot
 
-[!Screenshot](./Assets/ScreenshotDayScheduler.png)
+![Screenshot](./Assets/ScreenshotDayScheduler.jpg)
 
 ## Deployed link
