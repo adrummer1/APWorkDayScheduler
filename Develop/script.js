@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 // Global variables
 var TimeBlockEl = document.querySelector('.container-fluid');
 
@@ -8,16 +5,16 @@ $(function () {
 //Add current day, date, and time to header
 $('#currentDay').text(dayjs().format('dddd, MMM DD, YYYY hh:mm A'));
 
-//Event Listener for saveBtn clock
+//Event Listener for saveBtn that stores the text value and time slot to localStorage.
 $('.saveBtn').on('click', function() {
   var text = $(this).siblings('.description').val();
   var time = $(this).parent().attr('id');
 
   localStorage.setItem(time, text);
-  console.log(localStorage.setItem);
+  console.log(localStorage);
 });
 
-// Get item from local storage if there is anything.
+// Get item from local storage if there is anything and save to the corresponding hour block.
 $('#hour-9 .description').val(localStorage.getItem('hour-9'));
 $('#hour-10 .description').val(localStorage.getItem('hour-10'));
 $('#hour-11 .description').val(localStorage.getItem('hour-11'));
@@ -29,9 +26,11 @@ $('#hour-16 .description').val(localStorage.getItem('hour-16'));
 $('#hour-17 .description').val(localStorage.getItem('hour-17'));
 
 function trackTask() {
+  // Set variable for current hour.
   var currentHour = dayjs().hour();
 
-  // I was having trouble with this function and AskBCS helped me determine it was as simple as adding a hyphen to the hour on the parse function.
+  // Function for changing background color on time blocks relative to the current time.
+  // I was having trouble with this function and AskBCS helped me determine it was as simple as adding a hyphen to the hour on the parse function so that numbers match.
   $('.time-block').each(function () {
     var timeID = parseInt($(this).attr('id').split('hour-')[1]);
 
