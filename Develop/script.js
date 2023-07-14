@@ -1,17 +1,13 @@
-// Global variables
-var TimeBlockEl = document.querySelector('.container-fluid');
-
+// Add current day, date, and time to header using Day.js.
 $(function () {
-//Add current day, date, and time to header
 $('#currentDay').text(dayjs().format('dddd, MMM DD, YYYY hh:mm A'));
 
-//Event Listener for saveBtn that stores the text value and time slot to localStorage.
+// Set event Listener for saveBtn that stores the text value and time slot to localStorage.
 $('.saveBtn').on('click', function() {
   var text = $(this).siblings('.description').val();
   var time = $(this).parent().attr('id');
 
   localStorage.setItem(time, text);
-  console.log(localStorage);
 });
 
 // Get item from local storage if there is anything and save to the corresponding hour block.
