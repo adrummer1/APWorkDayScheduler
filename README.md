@@ -12,10 +12,12 @@ Users will find the following features with this application:
 
 ## Credits
 
-For this application I utilized the skills learned in Module 5, including using jQuery and the Day.js APIs. There was a small issue with setting the text color backgrounds which was resolved easily after consulting AskBCS.
+For this application I utilized the skills learned in Module 5, including using jQuery and the Day.js APIs. There was a small issue with setting the text color backgrounds which was resolved easily after consulting a Learning Assistant.
 
 ## Screenshot
 
 ![Screenshot](./Assets/ScreenshotDayScheduler.jpg)
 
 ## Deployed link
+
+[Here is a link to the deployed application](https://adrummer1.github.io/APWorkDayScheduler/)
